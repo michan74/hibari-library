@@ -4,10 +4,10 @@ var mysql = require('mysql');
 
 //データベース接続情報
 var connection = mysql.createConnection({
-    host: process.env.DATEBASE_HOST,
-    user: process.env.DATEBASE_USER,
-    password: process.env.DATEBASE_PASSWORD,
-    database: process.env.DATEBASE_DATEBASE
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME
 })
 
 //データベース接続
