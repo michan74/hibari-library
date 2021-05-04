@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    雲雀文庫：入口
+  </title>
+  <link rel="icon" href="/images/book_red.png">
+  <link rel='stylesheet' href='/stylesheets/index.css' />
+</head>
+
+<body>
+  <section id='title'>
+    <div>
+      <b>雲雀文庫</b>
+      <p id="open">入館</p>
+    </div>
+  </section>
+  <section id="login">
+    <form method='post' action='/' id="loginForm">
+      <div class="cardTab"></div>
+      <div class="card">
+        <b>入館証</b><span class="number">登録番号　XooXc</span><br>
+        <% if(flag===1){ %>
+          <span class="ngMessage">　入館資格がありません。</span>
+          <%} %>
+            <table>
+              <tr>
+                <td>
+                  <label for='id'>氏名</label>
+                </td>
+                <td>
+                  <input type='text' name='id' required>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for='password'>合言葉</label>
+                </td>
+                <td>
+                  <input type='password' name='password' id="password" required>
+                </td>
+              </tr>
+            </table>
+            </p>
+            <p id='key'>入</p>
+            <p id='resister'>+</p>
+      </div>
+    </form>
+  </section>
+  <!--jQuery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!--ログイン失敗後、ログイン画面を表示-->
+  <% if(flag==1){ %>
+    <script>
+      $(function () {
+        window.location.hash = "login";
+      })
+      //alert("ログイン失敗");
+    </script>
+    <% } %>
+      <!--作成-->
+      <script src="javascripts/index.js"></script>
+</body>
+
+</html>

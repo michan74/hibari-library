@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/book_red.png">
+    <link rel="stylesheet" href="stylesheets/note.css">
+    <title>雲雀文庫：記録</title>
+</head>
+
+<body>
+    <%- include('commonMenu.ejs') %>
+        <!--自分の投稿内容を表示-->
+        <section id="main">
+            <div id="noteInfo">
+                <b>図書記録</b>
+                <% if(posts.length>0){%>
+                    <p>
+                        <%= posts.length %>冊
+                    </p>
+                    <% } %>
+            </div>
+            <% if(posts.length>0){%>
+                <div id="scroll">
+                    <% posts.forEach(post=> { %>
+                        <div class="postWrapping">
+                            <div class="post" style="background-color:<%=post.color %>;">
+                                <div class="cover">
+                                    <div>
+                                        <p class="bookInfo">
+                                            <span hidden class="bookId">
+                                                <%= post.book_id %>
+                                            </span>
+                                            <br>---------------------------<br>
+                                            <!--<img src="/images/line.png" alt="---------------">-->
+                                            <% const day=post.post_date; %>
+                                                @<%= day.getFullYear()+"."+(day.getMonth())+1+"."+day.getDate() %><br>
+                                                    <b>
+                                                        「<%= post.comment %>」
+                                                    </b>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% }); %>
+                </div>
+                <% }else{ %>
+                    <div>
+                        投稿はありません。
+                    </div>
+
+                    <% } %>
+                        <hr>
+        </section>
+        <!--jQuery-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!--作成-->
+        <script src="javascripts/note.js"></script>
+</body>
+
+</html>

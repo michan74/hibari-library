@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/public/images/book.ico">
+    <link rel='stylesheet' href='stylesheets/book.css' />
+    <title>図書館本情報</title>
+</head>
+
+<body>
+    <!--本情報-->
+    <section id="bookInfo">
+        <div id="information">
+        </div>
+        <div>
+            <div id="scroll">
+                <% posts.forEach(post=> { %>
+                    <div class="postWrapping">
+                        <div class="post" style="background-color:<%=post.color %>;">
+                            <div class="cover">
+                                <p>
+                                    <%= post.user_id %><br>
+                                        <b>
+                                            <%= post.comment %>
+                                        </b>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <% }); %>
+            </div>
+
+        </div>
+    </section>
+    <!--本投稿-->
+    <section id="bookPost">
+
+        <form action="/book" method="POST" id="postForm">
+            <h3>意見書</h3>
+            <!--本ID-->
+            <input type="hidden" value="<%= bookId %>" name="bookId">
+            <table>
+                <tr>
+                    <!--本情報-->
+                    <td id="bookTitle" colspan="2">
+                    </td>
+                </tr>
+                <tr>
+                    <!--色-->
+                    <td>
+                        色彩
+                    </td>
+                    <td>
+                        <input type="text" id="colorPicker">
+                        <input hidden id="color" name="color" required>
+                    </td>
+                </tr>
+                <tr>
+                    <!--コメント-->
+                    <td>
+                        所感
+                    </td>
+                    <td>
+                        <input type="text" name="comment" id="commentText">
+                    </td>
+                </tr>
+            </table>
+            <!--利用者名-->
+            <p>
+                署名　<%= id %>
+            </p>
+            <!--<input type="text" name="image">-->
+            <!--印鑑-->
+            <% const today=new Date();%>
+                <p id="postButton"><span id="under">　投函　</span>
+                    <%= today.getFullYear()+"."+(today.getMonth()+1)+"."+today.getDate() %>
+                </p>
+        </form>
+    </section>
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--moment.js 日付フォーマット用-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+    <!--spectrum-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/i18n/jquery.spectrum-ja.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
+    <!--以下、作成-->
+    <script src="javascripts/search.js"></script>
+    <script src="javascripts/book.js"></script>
+</body>
+
+</html>

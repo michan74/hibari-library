@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/book_red.png">
+    <link rel="stylesheet" href="stylesheets/search.css">
+    <title>雲雀文庫：書架</title>
+</head>
+
+<body>
+    <%- include('commonMenu.ejs') %>
+        <!--検索入力領域-->
+        <section id="main">
+            <div>
+                <% if(flag===1){ %>
+                    <input type="text" id="searchWord" value="<%= word %> ">
+                    <%}else{ %>
+                        <input type="text" id="searchWord">
+                        <%} %>
+                            <p id="search" class="button">検索</p>
+            </div>
+            <!--検索結果表示-->
+            <div>
+                <table id="resultTable">
+                </table>
+            </div>
+        </section>
+        <% if(flag===1){ %>
+            <img src="images/arrow.png" alt="↑" id="arrowIcon" class="button">
+            <!--本情報-->
+            <section id="bookInfo">
+                <div id="information">
+                </div>
+                <div>
+                    <div id="scroll">
+                        <% posts.forEach(post=> { %>
+                            <div class="postWrapping">
+                                <div class="post" style="background-color:<%=post.color %>;">
+                                    <div class="cover">
+                                        <div>
+                                            <p>
+                                                <b>
+                                                    <%= post.comment %>
+                                                </b><br>
+                                                <img src="images/user.png" alt="人" class="user">
+                                                <%= post.user_id %><br>
+                                                    <% const day=post.post_date; %>
+                                                        ＠<%= day.getFullYear()+"."+(day.getMonth())+1+"."+day.getDate()
+                                                            %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }); %>
+                    </div>
+                    <hr id="line1">
+                    <hr id="line2">
+                </div>
+            </section>
+            <!--本投稿-->
+            <section id="bookPost">
+                <div class="postTab"></div>
+                <form action="/book" method="POST" id="postForm">
+                    <b>意見書</b>
+                    <span id="errorMessage"></span>
+                    <!--本ID-->
+                    <input type="hidden" value="<%= bookId %>" name="bookId">
+                    <!--検索ワード-->
+                    <input type="hidden" value="<%= word %>" name="word">
+                    <table>
+                        <tr>
+                            <!--本情報-->
+                            <td>
+                                書籍
+                            </td>
+                            <td id="bookTitle">
+                            </td>
+                        </tr>
+                        <tr>
+                            <!--色-->
+                            <td>
+                                色彩
+                            </td>
+                            <td>
+                                <input type="text" id="colorPicker">
+                                <input hidden id="color" name="color" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <!--コメント-->
+                            <td>
+                                所感
+                            </td>
+                            <td>
+                                <input type="text" name="comment" id="commentText" required maxlength="12">
+                            </td>
+                        </tr>
+                    </table>
+                    <!--利用者名-->
+                    <p id="sign">
+                        署名　<%= id %>
+                    </p>
+                    <!--<input type="text" name="image">-->
+                    <!--印鑑-->
+                    <% const today=new Date();%>
+                        <p id="postButton"><span id="under">　投函　</span>
+                            <%= today.getFullYear()+"."+(today.getMonth()+1)+"."+today.getDate() %>
+                        </p>
+                </form>
+            </section>
+            <% } %>
+                <!--jQuery-->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <!--moment.js 日付フォーマット用-->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+                <!--spectrum-->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
+                <script
+                    src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/i18n/jquery.spectrum-ja.min.js"></script>
+                <link rel="stylesheet" type="text/css"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
+                <!--作成-->
+                <script src="javascripts/search.js"></script>
+                <script>
+                <% if (flag === 1) { %>
+                        window.onload=scrollAction('#bookInfo');
+                <%} %> 
+                </script>
+
+</body>
+
+</html>

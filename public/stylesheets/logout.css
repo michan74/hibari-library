@@ -1,0 +1,53 @@
+/*全体*/
+*{
+    font-family: 'はれのそら明朝';
+    color: #583822;
+}
+:focus {   /*フォーカス時に反応しない：https://www.nishishi.com/css/chrome-textform-clear-border.html*/
+    outline: none;
+}
+.button{
+     cursor: pointer;
+}
+/*各セクション*/
+section{
+    margin:0;
+    display:flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+    height:100vh;
+    overflow: hidden;
+    background-color: #583822;
+}
+section div{
+    width:100vw;
+    height:400px;
+    padding-top: 50px;
+    background-color: #bec9ae;
+    text-align: center;
+}
+section img{
+    width:200px;
+    height:200px;
+    margin-bottom: 50px;
+}
+section div p{
+    text-align: center;
+    font-size: 15px;
+}
+section hr{
+    border:none;
+    border-bottom: solid 20px #f8f4e6;
+    width:100vw;
+    position:absolute;
+    bottom:20px;
+    margin-bottom: 0;
+}
+/*入り口へボタン*/
+#return{
+    font-size: 20px;
+}
+#return:hover{
+    color:#c85554;
+}

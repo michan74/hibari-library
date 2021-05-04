@@ -1,0 +1,103 @@
+/*全体*/
+*{
+    font-family: 'はれのそら明朝';
+    color: #583822;
+}
+:focus {   /*フォーカス時に反応しない：https://www.nishishi.com/css/chrome-textform-clear-border.html*/
+    outline: none;
+}
+.button{
+     cursor: pointer;
+}
+/*各セクション*/
+section{
+    display:flex;
+    justify-content: center; 
+    align-items:center;
+    flex-direction:column;
+    height:100vh;
+    overflow: hidden;
+}
+#main{
+
+    background-color: #f8f4e6;
+}
+#scroll{
+    display: flex;
+    align-items: flex-start;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width:100vw;
+    background-color: #f8f4e6;
+}
+/*タイトル*/
+#noteInfo{
+    text-align: center;
+    margin-bottom: 30px;
+}
+#noteInfo b{
+    font-size: 30px;
+    padding-bottom: 10px;
+    border-bottom: 3px dotted #583822;
+}
+#noteInfo p{
+    font-size: 20px;
+}
+/*本投稿内容*/
+/*正方形で表示：https://techacademy.jp/magazine/29044*/
+.postWrapping{
+    width:400px;
+    flex-shrink:0;
+}
+.post{
+    /*width : 400px ;
+    height:400px;*/
+    padding-top: 100%;
+    margin: 5px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.cover{
+    position: absolute;
+    margin:0;
+    padding:0;
+    top:0px;
+    left:0;
+    background-color: rgba(248,244,230,0.8);
+    width:100%;
+    height:100%;
+    display:none;
+    text-align: center;
+}
+.post:hover .cover{
+    display:block;
+}
+.cover div{
+    padding:20px;
+    margin: 10% auto;
+    border: double 5px #d1a181;
+    width:70%;
+    height:70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cover p b{
+    font-size: 20px;
+}
+.post .title{
+    font-size: 25px;
+    font-weight: bold;
+}
+.bookInfo img{
+    width:300px;
+    height:20px;
+}
+section hr{
+    border:none;
+    border-bottom: dashed 30px #bec9ae;
+    width:100vw;
+    position:absolute;
+    bottom:40px;
+    margin-bottom: 0;
+}

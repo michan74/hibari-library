@@ -1,0 +1,32 @@
+/*全体*/
+*{
+    font-family: 'はれのそら明朝';
+    color: #583822;
+}
+:focus {   /*フォーカス時に反応しない：https://www.nishishi.com/css/chrome-textform-clear-border.html*/
+    outline: none;
+}
+.button{
+     cursor: pointer;
+}
+/*各セクション*/
+section{
+    margin:0;
+    display:flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+    height:100vh;
+    overflow: hidden;
+    background-color: #f8f4e6;
+}
+.message{
+    text-align: center;
+}
+/*入り口へボタン*/
+#return{
+    font-size: 20px;
+}
+#return:hover{
+    color:#c85554;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/book_red.png">
+    <link rel='stylesheet' href='/stylesheets/resister.css' />
+    <title>雲雀文庫：入館鉦発行</title>
+</head>
+
+<body>
+    <!--flag:0 登録-->
+    <!--flag:2 登録失敗-->
+    <% if(flag===0 || flag===2) {%>
+        <section>
+            <form method='post' action='/resister' id="resisterForm">
+                <div class="cardTab"></div>
+                <div class="card">
+                    <b>入館証発行</b>
+                    　必要事項を記入してください。
+                    <table>
+                        <tr>
+                            <td>
+                                <label for='id'>氏名</label>
+                            </td>
+                            <td>
+                                <input type='text' name='id' required maxlength="10">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for='password'>合言葉</label>
+                            </td>
+                            <td>
+                                <input type='password' name='password' id="password" required maxlength="10">
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <h3>文庫利用に関する掟　三箇条</h3>
+                    一、　手洗いうがいの励行<br>
+
+                    二、　我思う故に我あり<br>
+
+                    三、　中庸を習慣とせよ<br><br>
+
+                    上記に同意し、入館証を発行いたします。<br><br>
+                    <% const today=new Date(); %>
+                        <p id="return">入口へ戻る</p>
+                        <p id='resister'><span id="under">　発行　</span>
+                            <%= today.getFullYear()+"."+(today.getMonth()+1)+"."+today.getDate() %>
+                        </p>
+                </div>
+            </form>
+
+        </section>
+        <% }else if(flag===1){ %>
+            <!--flag:1 登録完了-->
+            <section id="finish">
+                <div>
+                    <b>登録完了</b>
+                    <br>-------------------------------------<br>
+                    <p id="return">入口へ戻る</p>
+                </div>
+            </section>
+            <% } %>
+
+                <!--jQuery-->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <!--作成-->
+                <script src="javascripts/resister.js"></script>
+</body>
+
+</html>

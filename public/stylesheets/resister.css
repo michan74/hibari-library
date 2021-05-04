@@ -1,0 +1,107 @@
+/*全体*/
+*{
+    font-family: 'はれのそら明朝';
+    color: #583822;
+}
+:focus {   /*フォーカス時に反応しない：https://www.nishishi.com/css/chrome-textform-clear-border.html*/
+    outline: none;
+}
+/*各セクション*/
+section{
+    display:flex;
+    justify-content: center; 
+    align-items: center;
+    height:100vh;
+    overflow: hidden;
+    background-color: #f8f4e6;
+}
+/*ログインーーーーーーーーーーー*/
+.cardTab{
+    width: 60px;
+    border-bottom: 30px solid #d1a181;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    height: 0;
+    margin-left:370px;
+}
+.card{
+    padding:40px;
+    font-family:20px;
+    border:solid 2px #d1a181;
+    overflow: hidden;
+    border-top: solid 14px #d1a181;
+    border-bottom:double 4px #d1a181;
+    
+}
+.card b{
+    font-size: 30px;
+}
+.card table{
+    border-collapse: collapse;
+}
+.card table tr td{
+    padding-top:10px;
+    padding-right: 10px;
+}
+.card table input{ /*テキストボックス*/
+    border: none;
+	border-bottom: 1px dotted #583822;
+	background: transparent;
+}
+#password{
+    font-family: sans-serif;  /*はれのそら明朝では、文字が見えなかった*/
+}
+#resister{
+    display: block;
+    width: 80px;
+    height:50px;
+    cursor: pointer;
+    float:right;
+    border: 2px solid #d3381c;
+    color: #d3381c;
+    border-radius: 10px;
+    margin: 0;
+    text-align: center;
+    padding: 5px 10px;
+}
+#under{
+    color: #d3381c;
+    padding-bottom: 5px;
+    border-bottom: solid 1.5px #d3381c;
+}
+#resister:hover{
+    transform: rotate(-15deg);
+    opacity: 0.8;
+}
+#resister:active{
+    position:relative;
+    top:2px;
+}
+/*テキストボックスrequiredのNG*/
+.card .required{
+    background: rgba(211, 56, 28,0.13);
+    border-bottom: 1px solid #d3381c;
+}
+/*登録完了ーーーーーーーー*/
+/*文字*/
+#finish{
+    text-align: center;
+}
+#finish b{
+    font-size:30px;
+    display: block;
+}
+#finish div{
+    display:flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+}
+/*戻るボタン*/
+#return{
+    cursor: pointer;
+    float:left;
+}
+#return:hover{
+    color:#c85554;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/book_red.png">
+    <link rel="stylesheet" href="stylesheets/logout.css">
+    <title>雲雀文庫：退館</title>
+</head>
+
+<body>
+    <section>
+        <!--<img src="images/main2.png" alt="雲雀文庫">-->
+        <div>
+            <img src="images/main.png" alt="雲雀文庫">
+            <p>
+                ご利用ありがとうございました。
+                またお越しください。
+            </p>
+            <p class="button" id="return">
+                入口へ
+            </p>
+        </div>
+    </section>
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            //入口に戻るを押下時
+            $('#return').on('click', function () {
+                //ログイン画面表示
+                location.href = "/";
+            })
+        })
+    </script>
+</body>
+
+</html>
